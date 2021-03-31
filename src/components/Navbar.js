@@ -1,9 +1,9 @@
 import Login from "./Login";
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className="Navbar">
-      <Login></Login>
+      <Login isLoggedIn={props.isLoggedIn} handleLoginClick={props.handleLoginClick}></Login>
     </div>
   );
 }

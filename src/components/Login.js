@@ -1,7 +1,7 @@
-function Login() {
+function Login(props) {
   return (
     <div className="Login">
-      <button type="button">Login</button>
+      <button type="button" onClick={props.handleLoginClick}>{props.isLoggedIn ? "Logout" : "Login"}</button>
     </div>
   );
 }

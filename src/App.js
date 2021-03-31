@@ -1,14 +1,27 @@
 import './App.css';
 import Navbar from './components/Navbar.js'
 import SitesTable from './components/SitesTable.js'
+import React, {Component} from 'react'
 
-function App() {
-  return (
+export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      isLoggedIn: false
+    }
+  }
+
+  handleLoginClick() {
+    this.setState({isLoggedIn: !this.state.isLoggedIn});
+  }
+
+  render() {
+    return (
     <div className="App">
-      <Navbar></Navbar>
-      <SitesTable></SitesTable>
+      isLoggedIn: {this.state.isLoggedIn ? "Yes" : "No"}
+      <Navbar handleLoginClick={() => this.handleLoginClick()} isLoggedIn={this.state.isLoggedIn}></Navbar>
+      <SitesTable isLoggedIn={this.state.isLoggedIn}></SitesTable>
     </div>
-  );
+    )
+  }
 }
-
-export default App;
