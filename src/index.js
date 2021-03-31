@@ -4,6 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// npm install redux and add these lines to set up the redux store
+import { createStore } from "redux";
+import rootReducer from "./redux/reducers/index.js";
+
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+export default store;
+//////////////////////////////////////////////////////////////////
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
