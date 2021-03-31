@@ -1,14 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from "react-redux";
 
-function SiteRow(props) {
+const mapStateToProps = state => {
+  return { isLoggedIn: state.isLoggedIn };
+};
+
+function ConnectedSiteRow(props) {
     return (
       <div className="SiteRow">
         <div className="SiteDiv">{props.site.name}</div>
-        {false && (
+        {props.isLoggedIn && (
           <div className="SiteDiv">Power: {props.site.power}</div>
         )}
       </div>
     );
 }
+
+const SiteRow = connect(mapStateToProps)(ConnectedSiteRow)
 
 export default SiteRow;
